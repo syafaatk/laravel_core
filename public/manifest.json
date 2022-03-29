@@ -1,0 +1,16 @@
+{
+  "name": "Ensis Imarah Printing",
+  "short_name": "Ensysip",
+  "start_url": ".",
+  "lang": "id-ID",
+  "display": "standalone",
+  "background_color": "#3051D3",
+  "theme_color": "#3051D3",
+  "description": "Sistem Informasi Management & Penjualan Imarah Printing",
+  "icons": [{
+    "src": "assets/images/favicon.ico",
+    "sizes": "252x252",
+    "type": "image/png"
+  }]
+  
+}
