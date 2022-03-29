@@ -15,6 +15,9 @@ Route::get('/', function () {
 	return view('auth.login');
 });
 
+Route::get('/view', 'ViewController@index')->name('view');
+Route::get('/view/{id?}', 'ViewController@produk')->name('find');
+
 Auth::routes();
 
 Route::get('sso/google', 'Api\GoogleController@redirect')->name('sso.google');

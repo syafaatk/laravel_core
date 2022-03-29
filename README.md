@@ -1,78 +1,75 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+Test Case Majoo Teknologi Indonesia
+-------
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+**Tampilan Test Case berdasarkan mockup**
 
-## About Laravel
+.. image:: image/tampilan.jpeg
+   :width: 6.5in
+   :height: 4.31944in
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+**Entity Relational Diagram**
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+.. image:: image/erd.png
+   :width: 6.5in
+   :height: 4.31944in
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+.. image:: image/erd 2.png
+   :width: 6.5in
+   :height: 4.31944in
 
-## Learning Laravel
+.. image:: image/dml.png
+   :width: 6.5in
+   :height: 4.31944in
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+**Activity Diagram**
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+.. image:: image/activity.png
+   :width: 6.5in
+   :height: 4.31944in
 
-## Laravel Sponsors
+**Usecase Diagram**
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+.. image:: image/usecase.png
+   :width: 6.5in
+   :height: 4.31944in
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
+**Data Manipulation Language (DML)**
+1. Tabel master_produk
 
-## Contributing
+CREATE TABLE `master_produk` (
+  `master_produk_id` int(11) NOT NULL,
+  `master_produk_name` varchar(255) NOT NULL COMMENT 'Nama Barang / Bahan Baku',
+  `master_produk_deskripsi` text DEFAULT NULL COMMENT 'Deskripsi Produk',
+  `master_produk_price` float(11,2) NOT NULL COMMENT 'Harga Modal',
+  `master_kategori_id` int(11) NOT NULL COMMENT 'Merk / Brand Ref master_brand',
+  `master_produk_file` text NOT NULL COMMENT 'File Upload',
+  `master_produk_status` enum('Active','Non Active') NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+INSERT INTO `master_produk` (`master_produk_id`, `master_produk_name`, `master_produk_deskripsi`, `master_produk_price`, `master_kategori_id`, `master_produk_file`, `master_produk_status`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(3, 'Majoo Pro', 'Loeoeoeo', 2750000.00, 1, 'c373c604c5396134d97a62400b9685e3.png', 'Active', '2022-03-29 12:21:56', '2022-03-29 12:37:40', NULL),
+(4, 'Majoo Advance', 'Lorem ipsum', 2750000.00, 2, 'd8b681e1aaf3967cce9fc66bf7cb6cdb.png', 'Active', '2022-03-29 12:31:27', '2022-03-29 12:42:56', NULL),
+(5, 'Majoo Lifestyle', 'Lerom ipsum', 2750000.00, 3, '28bc676ef9f29718c6c5e179ea7354ee.png', 'Active', '2022-03-29 12:32:15', '2022-03-29 12:32:15', NULL),
+(6, 'Majoo Desktop', 'Lerom ipsum', 2750000.00, 4, '5d47944a11ce42cc0c17fc5c41b94bb1.png', 'Active', '2022-03-29 12:32:49', '2022-03-29 12:32:49', NULL);
 
-## Code of Conduct
+2. Tabel master_kategori
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+CREATE TABLE `master_kategori` (
+  `master_kategori_id` int(11) NOT NULL,
+  `master_kategori_alias` varchar(6) NOT NULL COMMENT 'Nama Alias / Singkatan',
+  `master_kategori_name` varchar(255) NOT NULL COMMENT 'Nama Brand/Merk',
+  `master_kategori_status` enum('Active','Non Active') NOT NULL DEFAULT 'Active' COMMENT 'Status Brand/Merk',
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `deleted_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+INSERT INTO `master_kategori` (`master_kategori_id`, `master_kategori_alias`, `master_kategori_name`, `master_kategori_status`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'P', 'Pro', 'Active', '2022-03-29 12:02:29', '2022-03-29 12:02:29', NULL),
+(2, 'A', 'Advance', 'Active', '2022-03-29 12:02:41', '2022-03-29 12:02:41', NULL),
+(3, 'L', 'Lifestyle', 'Active', '2022-03-29 12:02:53', '2022-03-29 12:02:53', NULL),
+(4, 'D', 'Desktop', 'Active', '2022-03-29 12:03:04', '2022-03-29 12:03:04', NULL),
+(5, 'C', 'Contoh', 'Active', '2022-03-29 12:27:10', '2022-03-29 12:27:22', '2022-03-29 12:27:22');
