@@ -104,6 +104,30 @@ Route::group(['as'=>'master.'], function () {
 			Route::post('datatable', 'ItemController@datatable')->name('datatable');
 		});
 
+		Route::group(['prefix' => 'produk', 'as'=>'produk.'], function () {
+			Route::get('index', 'ProdukController@index')->name('index');
+			Route::get('find/{id?}', 'ProdukController@find')->name('find');
+			Route::get('select2', 'ProdukController@select2')->name('select2');
+			Route::post('add', 'ProdukController@add')->name('add');
+			Route::get('active/{id?}', 'ProdukController@active')->name('active');
+			Route::get('nonactive/{id?}', 'ProdukController@nonactive')->name('nonactive');
+			Route::post('update/{id?}', 'ProdukController@update')->name('update');
+			Route::post('delete/{id?}', 'ProdukController@delete')->name('delete');
+			Route::post('datatable', 'ProdukController@datatable')->name('datatable');
+		});
+
+		Route::group(['prefix' => 'kategori', 'as'=>'kategori.'], function () {
+			Route::get('index', 'KategoriController@index')->name('index');
+			Route::get('find/{id?}', 'KategoriController@find')->name('find');
+			Route::get('select2', 'KategoriController@select2')->name('select2');
+			Route::post('add', 'KategoriController@add')->name('add');
+			Route::get('active/{id?}', 'KategoriController@active')->name('active');
+			Route::get('nonactive/{id?}', 'KategoriController@nonactive')->name('nonactive');
+			Route::post('update/{id?}', 'KategoriController@update')->name('update');
+			Route::post('delete/{id?}', 'KategoriController@delete')->name('delete');
+			Route::post('datatable', 'KategoriController@datatable')->name('datatable');
+		});
+
 	});
 
 	/*

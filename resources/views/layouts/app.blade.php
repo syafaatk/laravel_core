@@ -140,23 +140,11 @@
 								<span>Master Penjualan</span>
 							</a>
 							<ul class="sub-menu" aria-expanded="false">
-								@if (isValidRole($sales, 'Gudang'))
-								<li><a href="{{ route('master.sales.warehouse.index') }}">Gudang</a></li>
+								@if (isValidRole($sales, 'Produk'))
+								<li><a href="{{ route('master.sales.produk.index') }}">Produk / Barang</a></li>
 								@endif
-								@if (isValidRole($sales, 'Brand'))
-								<li><a href="{{ route('master.sales.brand.index') }}">Brand</a></li>
-								@endif
-								@if (isValidRole($sales, 'Satuan'))
-								<li><a href="{{ route('master.sales.unit.index') }}">Satuan (EOM)</a></li>
-								@endif
-								@if (isValidRole($sales, 'Supplier'))
-								<li><a href="{{ route('master.sales.supplier.index') }}">Supplier</a></li>
-								@endif
-								@if (isValidRole($sales, 'Kategori Supplier'))
-								<li><a href="{{ route('master.sales.supplier_category.index') }}">Kategori Supplier</a></li>
-								@endif
-								@if (isValidRole($sales, 'Item'))
-								<li><a href="{{ route('master.sales.item.index') }}">Item / Barang</a></li>
+								@if (isValidRole($sales, 'Kategori'))
+								<li><a href="{{ route('master.sales.kategori.index') }}">Kategori</a></li>
 								@endif
 							</ul>
 						</li>
