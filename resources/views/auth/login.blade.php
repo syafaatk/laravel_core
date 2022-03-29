@@ -93,15 +93,6 @@
                         </div>
                         <div class="mt-4 text-center">
                           <button class="btn btn-primary btn-block waves-effect waves-light" type="submit">Masuk</button>
-
-                          <h6 class="mt-2 mb-3 text-center text-secondary">Atau Masuk Dengan Akun</h6>
-
-                          <a class="btn btn-danger waves-effect waves-light" href="{{ route('sso.google') }}"><i class="fab fa-google"></i> Google</a>
-                          <a class="btn btn-primary waves-effect waves-light" href="{{ route('sso.facebook') }}"><i class="fab fa-facebook-f "></i> Facebook</a>
-                          <a class="btn btn-info waves-effect waves-light" href="{{ route('sso.linkedin') }}"><i class="fab fa-linkedin "></i> Linked</a>
-                          <a class="btn btn-dark waves-effect waves-light" href="{{ route('sso.github') }}"><i class="fab fa-github"></i> Github</a>
-
-                          <h6 class="mt-4 mb-2 text-center text-secondary">Daftarkan Terlebih Dahulu Email Sosial Media Pada Menu <br><b>Ubah Kata Sandi</b><br> Untuk Menggunakan Fitur Ini</h6>
                         </div>
                       </div>
                     </div>

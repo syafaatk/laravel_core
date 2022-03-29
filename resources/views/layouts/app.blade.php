@@ -260,7 +260,7 @@
 				<div class="container-fluid">
 					<div class="row">
 						<div class="col-sm-6 mb-n3">
-							2020 © {{ config('app.name', 'CV Imarah Promosindo') }}.
+							2020 © {{ config('app.name', 'Majoo') }}.
 						</div>
 						<div class="col-sm-6">
 							<div class="text-right footer-links d-none d-lg-block d-md-block">

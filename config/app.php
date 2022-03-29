@@ -242,17 +242,17 @@ return [
 
     'default' => [
         'company' => [
-            'name'    => env('COMPANY_NAME', 'Mr20k'),
-            'slogan'  => env('COMPANY_SLOGAN', 'Mr20k'),
-            'address' => env('COMPANY_ADDRESS', 'Mr20k'),
-            'phone'   => env('COMPANY_PHONE', 'Mr20k'),
-            'sosmed'  => env('COMPANY_SOSMED', 'Mr20k'),
-            'owner'   => env('COMPANY_OWNER', 'Mr20k'),
+            'name'    => env('COMPANY_NAME', 'KS'),
+            'slogan'  => env('COMPANY_SLOGAN', 'KS'),
+            'address' => env('COMPANY_ADDRESS', 'KS'),
+            'phone'   => env('COMPANY_PHONE', 'KS'),
+            'sosmed'  => env('COMPANY_SOSMED', 'KS'),
+            'owner'   => env('COMPANY_OWNER', 'KS'),
             'bank'    => [
-                'primary' => env('COMPANY_BANK_PRIMARY', 'Mr20k'),
-                'bca'     => env('COMPANY_BANK_BCA', 'Mr20k'),
-                'bni'     => env('COMPANY_BANK_BNI', 'Mr20k'),
-                'bsb'     => env('COMPANY_BANK_BSB', 'Mr20k'),
+                'primary' => env('COMPANY_BANK_PRIMARY', 'KS'),
+                'bca'     => env('COMPANY_BANK_BCA', 'KS'),
+                'bni'     => env('COMPANY_BANK_BNI', 'KS'),
+                'bsb'     => env('COMPANY_BANK_BSB', 'KS'),
             ],
         ],
     ],
