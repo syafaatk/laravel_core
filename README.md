@@ -3,35 +3,21 @@ Test Case Majoo Teknologi Indonesia
 
 **Tampilan Test Case berdasarkan mockup**
 
-.. image:: image/tampilan.jpeg
-   :width: 6.5in
-   :height: 4.31944in
+<img src="/image/tampilan.jpeg" alt="View Produk" title="Produk view">
 
 **Entity Relational Diagram**
 
-.. image:: image/erd.png
-   :width: 6.5in
-   :height: 4.31944in
+<img src="/image/ERD.png" alt="ERD 1" title="Entity Relational Diagram 1">
 
-.. image:: image/erd 2.png
-   :width: 6.5in
-   :height: 4.31944in
-
-.. image:: image/dml.png
-   :width: 6.5in
-   :height: 4.31944in
+<img src="/image/erd 2.png" alt="ERD 2" title="Entity Relational Diagram 2">
 
 **Activity Diagram**
 
-.. image:: image/activity.png
-   :width: 6.5in
-   :height: 4.31944in
+<img src="/image/activity.png" alt="Activity" title="Activity Diagram">
 
 **Usecase Diagram**
 
-.. image:: image/usecase.png
-   :width: 6.5in
-   :height: 4.31944in
+<img src="/image/usecase.png" alt="Use Case" title="Use Case Diagram">
 
 **Data Manipulation Language (DML)**
 1. Tabel master_produk
