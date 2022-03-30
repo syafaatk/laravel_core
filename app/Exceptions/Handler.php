@@ -5,6 +5,7 @@ namespace App\Exceptions;
 use Throwable;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Session\TokenMismatchException as ExceptionToken;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class Handler extends ExceptionHandler
 {
@@ -53,6 +54,15 @@ class Handler extends ExceptionHandler
     {
         if ($exception instanceof ExceptionToken) {
             return redirect('/login');
+        }
+
+        /* Response Not Found Data On Ajax Request */
+        if ($request->ajax()) {
+            if ($exception instanceof ModelNotFoundException) {
+                return response()->json([
+                    'message' => 'Data Tidak Ditemukan.',
+                ], 404);
+            }
         }
 
         return parent::render($request, $exception);

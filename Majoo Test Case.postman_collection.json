@@ -1,0 +1,677 @@
+{
+	"info": {
+		"_postman_id": "84bfa440-acd4-43e8-855e-6cb1d73b64d8",
+		"name": "Majoo Test Case",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "syafaatkhoirusy@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "syafaat12",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ProductList",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/master/sales/produk/index",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"master",
+						"sales",
+						"produk",
+						"index"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ProductFind",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/master/sales/produk/find/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"master",
+						"sales",
+						"produk",
+						"find",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ProductSelect2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/master/sales/produk/select2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"master",
+						"sales",
+						"produk",
+						"select2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ProductStatusActived",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/master/sales/produk/active/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"master",
+						"sales",
+						"produk",
+						"active",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ProductStatusNonActived",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/master/sales/produk/nonactive/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"master",
+						"sales",
+						"produk",
+						"nonactive",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ProductAdd",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "master_kategori_id",
+							"value": "1",
+							"type": "default"
+						},
+						{
+							"key": "master_produk_name",
+							"value": "Test API",
+							"type": "default"
+						},
+						{
+							"key": "master_produk_deskripsi",
+							"value": "<p>Haii</p>",
+							"type": "default"
+						},
+						{
+							"key": "master_produk_price",
+							"value": "10000",
+							"type": "default"
+						},
+						{
+							"key": "master_produk_file",
+							"type": "file",
+							"src": "/C:/Users/Lenovo/Downloads/standard_repo.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/master/sales/produk/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"master",
+						"sales",
+						"produk",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ProductUpdate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "master_kategori_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "master_produk_name",
+							"value": "Test API update",
+							"type": "text"
+						},
+						{
+							"key": "master_produk_deskripsi",
+							"value": "<p>Haii</p>",
+							"type": "text"
+						},
+						{
+							"key": "master_produk_price",
+							"value": "10000",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/master/sales/produk/update/13",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"master",
+						"sales",
+						"produk",
+						"update",
+						"13"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ProductDelete",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/master/sales/produk/delete/13",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"master",
+						"sales",
+						"produk",
+						"delete",
+						"13"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "KategoriList",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/master/sales/kategori/index",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"master",
+						"sales",
+						"kategori",
+						"index"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "KaetegoriFind",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/master/sales/kategori/find/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"master",
+						"sales",
+						"kategori",
+						"find",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "KategoriSelect2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/master/sales/kategori/select2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"master",
+						"sales",
+						"kategori",
+						"select2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "KategoriStatusActived",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/master/sales/kategori/active/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"master",
+						"sales",
+						"kategori",
+						"active",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "KategoriStatusNonActived",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/master/sales/produk/nonactive/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"master",
+						"sales",
+						"produk",
+						"nonactive",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "KategoriAdd",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "master_kategori_alias",
+							"value": "CT",
+							"type": "default"
+						},
+						{
+							"key": "master_kategori_name",
+							"value": "Contoh",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/master/sales/kategori/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"master",
+						"sales",
+						"kategori",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "KategoriUpdate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "master_kategori_alias",
+							"value": "D",
+							"type": "text"
+						},
+						{
+							"key": "master_kategori_name",
+							"value": "Desktop",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/master/sales/kategori/update/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"master",
+						"sales",
+						"kategori",
+						"update",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "KategoriDelete",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/master/sales/kategori/delete/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"master",
+						"sales",
+						"kategori",
+						"delete",
+						"6"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI1IiwianRpIjoiOTAyZGFjZjg2Y2YzYTlmOTFjYThkNTg1YWQxYmQ3N2IyNzIyYzgxYjg3NGNhMjMxMjYwNDcxZTljZWNmMGJlZWJlMjdlNTU0ZjdjYTQxZGIiLCJpYXQiOjE2NDg2MTA0NDcuODY0NjcxLCJuYmYiOjE2NDg2MTA0NDcuODY0Njc3LCJleHAiOjE2NDkyMTUyNDMuNTgzMDM0LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.hUQ8cmhsJacu6UAMbb0KIBNHzygyxflX5Cy5QccivRGYbHD2YSHuyBm0nln6pRYXaGXSxe7rWDt-6Pu1ZAuJuoukRsEtxFfLJsFPLGEDAH_Xqt40BkgyBREVDPOXT9An_6tttFtDgnxMNjvlRb3NQ9LyNcEDOhae7h3Uy--zR6FU_lJVTKmYx4XrvgeanaaHQGUPH5oIoypXHT-x8rT4JaOyL3kbSFrA2x_nkNcbwgrrxV8mmaWq6nzVR9xZnJNOAm3-ZYVAYd0ItSECjpXj1eGtxJqoW4-8K83uW-J-tFriJvPK2fbtHuWPb_A4qn1f-NRN7bgPfzuqBdHyw-jllAex46VeRAaiURRL5KcdoWPdDjo_SWtfdEsHul8CTOZUH2c6SnKblwnAyQENtCoJB1V3ctloKzExTIDj0_FEHFFHRudNNFq5hJrI0Ci-2f762KUTWZ_BuKycNTSOwTerWarFObTMCPNt6AA5HDCa932MC3NAKJrRkrRukU261b6glWCpElw0TKF78HiMcRoLy_LnSHChmkR1slv7oRH1aFvq225fRyC5VcDj7iJyHqB50TpAV66cyU-wlhWWse5Wy3u4AiXmjKvK6sKe3l5u0q4WfYwVSCZomMIWPnvIlkc28jdQOscG6A0MbIRJgYX_Wk1csvM-NB2Iys377y5xRdI",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

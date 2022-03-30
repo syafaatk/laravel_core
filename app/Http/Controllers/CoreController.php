@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\{Cache, DB};
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Validator;
+use Carbon\Carbon;
 
 class CoreController extends Controller
 {
@@ -113,7 +115,7 @@ class CoreController extends Controller
     	// Init role as access    		
       $data['role'] = $akses;
 
-      if (gettype($this->roleMenu())==="array") {
+      if (gettype($this->roleMenu()) === "array") {
         foreach ($this->roleMenu() as $role) {
           if (property_exists($data['role'], $role)){
             $data['role'] = $data['role']->{$role};
@@ -122,6 +124,7 @@ class CoreController extends Controller
           }
         }
       } else {
+        $role = (string) $this->roleMenu();
         if (property_exists($data['role'], $role)){
           $data['role'] = $data['role']->{$role};
         } else {

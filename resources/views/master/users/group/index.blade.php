@@ -115,15 +115,6 @@
 							html: `Silahkan Hubungi Screenshoot dan Laporankan Ke Admin! <br> ${JSON.stringify(jqXHR)} <br> ${JSON.stringify(textStatus)} <br> ${JSON.stringify(errorThrown)}`,
 						});
 
-						$.post('{{ route('api.wa.sendError') }}', {
-							msg: `${ JSON.stringify(msg)}`,
-							status: `${ JSON.stringify(textStatus)}`,
-							throw: `${ JSON.stringify(errorThrown)}`,
-							form: `${ JSON.stringify(form.serializeArray())}`,
-							url: `${ JSON.stringify(url)}`,
-						}, function(json, textStatus) {
-							console.log("json", json);
-						});
 					}
 				},
 			});

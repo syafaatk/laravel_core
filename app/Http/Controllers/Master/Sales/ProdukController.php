@@ -65,12 +65,12 @@ class ProdukController extends Controller
      * @return null or array
      */
     public function customSelect2(){
-      return array([
+      return array(
         'id'       => 'master_produk_id as id',
-        'text'     => DB::raw('CONCAT(master_produk_name, " ( Kategori ", master_produk_kategori , ")") AS text'),
+        'text'     => DB::raw('CONCAT(master_produk_name, " ( Kategori ", master_kategori_name , " )") AS text'),
         'disabled' => DB::raw('IF(master_produk_status="Active", FALSE, TRUE) as disabled'),
-        'search'   => 'master_produk_name',
-      ]);
+        'search'   => 'master_produk_name'
+      );
     }
 
     /**

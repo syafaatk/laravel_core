@@ -10,14 +10,8 @@
       <span> > Master Penjualan</span> 
     </a>
   </li>
-  <li class="nav-item">
-    <a href="#Crud" data-toggle="tab" aria-expanded="false" class="nav-link">
-      <span> > Crud</span> 
-    </a>
-  </li>
 </ul>
 <div class="tab-content col-sm-12">
   @include('master.users.group.master_data.ac')
   @include('master.users.group.master_data.penjualan')
-  @include('master.users.group.master_data.crud')
 </div>

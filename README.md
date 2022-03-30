@@ -1,5 +1,7 @@
 Test Case Majoo Teknologi Indonesia
 -------
+**Postman API Documentation**
+<a href="https://documenter.getpostman.com/view/5487152/UVypycYQ" target="_blank">Postman API Documentation</a>
 
 **Tampilan Test Case berdasarkan mockup**
 
@@ -22,6 +24,7 @@ Test Case Majoo Teknologi Indonesia
 **Data Manipulation Language (DML)**
 1. Tabel master_produk
 
+```sql
 CREATE TABLE `master_produk` (
   `master_produk_id` int(11) NOT NULL,
   `master_produk_name` varchar(255) NOT NULL COMMENT 'Nama Barang / Bahan Baku',
@@ -40,9 +43,10 @@ INSERT INTO `master_produk` (`master_produk_id`, `master_produk_name`, `master_p
 (4, 'Majoo Advance', 'Lorem ipsum', 2750000.00, 2, 'd8b681e1aaf3967cce9fc66bf7cb6cdb.png', 'Active', '2022-03-29 12:31:27', '2022-03-29 12:42:56', NULL),
 (5, 'Majoo Lifestyle', 'Lerom ipsum', 2750000.00, 3, '28bc676ef9f29718c6c5e179ea7354ee.png', 'Active', '2022-03-29 12:32:15', '2022-03-29 12:32:15', NULL),
 (6, 'Majoo Desktop', 'Lerom ipsum', 2750000.00, 4, '5d47944a11ce42cc0c17fc5c41b94bb1.png', 'Active', '2022-03-29 12:32:49', '2022-03-29 12:32:49', NULL);
+```
 
 2. Tabel master_kategori
-
+```sql
 CREATE TABLE `master_kategori` (
   `master_kategori_id` int(11) NOT NULL,
   `master_kategori_alias` varchar(6) NOT NULL COMMENT 'Nama Alias / Singkatan',
@@ -59,3 +63,4 @@ INSERT INTO `master_kategori` (`master_kategori_id`, `master_kategori_alias`, `m
 (3, 'L', 'Lifestyle', 'Active', '2022-03-29 12:02:53', '2022-03-29 12:02:53', NULL),
 (4, 'D', 'Desktop', 'Active', '2022-03-29 12:03:04', '2022-03-29 12:03:04', NULL),
 (5, 'C', 'Contoh', 'Active', '2022-03-29 12:27:10', '2022-03-29 12:27:22', '2022-03-29 12:27:22');
+```

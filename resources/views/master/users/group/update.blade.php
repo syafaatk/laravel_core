@@ -48,11 +48,6 @@ $NewSpace = '<td class="bg-light text-center">|</td><td class="bg-light text-cen
                   <span> > Master</span> 
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="#WhatsappApi" data-toggle="tab" aria-expanded="false" class="nav-link">
-                  <span> > Whatsapp Api</span>            
-                </a>
-              </li>
             </ul>
             <div class="tab-content col-sm-12">
               <div role="tabpanel" class="tab-pane fade show active" id="Dashboard">
@@ -61,10 +56,6 @@ $NewSpace = '<td class="bg-light text-center">|</td><td class="bg-light text-cen
 
               <div role="tabpanel" class="tab-pane fade" id="MasterData">
                 @include('master.users.group.master_data.index_dms')
-              </div>
-
-              <div role="tabpanel" class="tab-pane fade" id="WhatsappApi">
-                @include('master.users.group.whatsapp.index_wa')
               </div>
             </div>
           </div>

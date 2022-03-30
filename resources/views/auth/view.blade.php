@@ -14,7 +14,7 @@
                     </div>
                     
                     <div class="plan-features text-muted mt-3">
-                        <p>{{ $product->master_produk_deskripsi }}</p>
+                        {!! $product->master_produk_deskripsi !!}
                     </div>
 
                     <div class="mt-5">

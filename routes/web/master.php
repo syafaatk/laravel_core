@@ -1,5 +1,6 @@
 <?php
 // Contoh Membuat Custom Route Ada Pada App/Provider/RouteServiceProvider.php
+use Illuminate\Support\Facades\Route;
 
 Route::group(['as'=>'master.'], function () {
 	// Master Access Control List

@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +22,14 @@ Route::get('/view', 'ViewController@index')->name('view');
 Route::get('/view/{id?}', 'ViewController@produk')->name('find');
 
 Auth::routes();
+
+Route::get('/register', function () {
+	return redirect('/login');
+});
+
+Route::post('/register', function () {
+	return redirect('/login');
+});
 
 Route::get('sso/google', 'Api\GoogleController@redirect')->name('sso.google');
 Route::get('sso/google/callback', 'Api\GoogleController@callback');
