@@ -45,26 +45,6 @@ Route::post('keep-token-alive', function() {
 	return response()->json(['error'=>false, 'msg' => 'Done']);
 });
 
-Route::group(['prefix' => 'api', 'namespace'=>'Api', 'as'=>'api.'], function () {
-	Route::group(['prefix' => 'wa', 'namespace'=>'Wa', 'as'=>'wa.'], function () {
-		Route::get('index/{type?}', 'WaController@index')->name('index');
-		Route::post('saveconfigwa/{type?}', 'WaController@saveConfigWa')->name('saveconfigwa');
-		Route::post('send/{type?}', 'WaController@send')->name('send');
-		Route::post('sendError', 'WaController@sendError')->name('sendError');
-		Route::get('find/{type?}', 'WaController@find')->name('find');
-		
-		Route::group(['prefix' => 'log_error', 'as'=>'log_error.'], function () {
-			Route::get('index', 'WaLogErrorController@index')->name('index');
-			Route::get('find/{id?}', 'WaLogErrorController@find')->name('find');
-			Route::get('select2', 'WaLogErrorController@select2')->name('select2');
-			Route::get('fixed/{id?}', 'WaLogErrorController@fixed')->name('fixed');
-			Route::get('notfixed/{id?}', 'WaLogErrorController@notfixed')->name('notfixed');
-			Route::post('delete/{id?}', 'WaLogErrorController@delete')->name('delete');
-			Route::post('datatable', 'WaLogErrorController@datatable')->name('datatable');
-		});
-	});
-});
-
 Route::group(['middleware' => ['web','cache.headers','auth']], function () {
 
 	Route::get('/home', function() {

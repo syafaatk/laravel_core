@@ -1,43 +1,50 @@
 <!doctype html>
 <html lang="en">
+
 <head>
 	<meta charset="utf-8" />
 	<title>{{ config('app.name', 'Sistem Core Khoirusy Syafaat') }}</title>
 	{{-- CSRF Token --}}
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="{{ config('app.name', 'Sistem Core Khoirusy Syafaat') }}"/>
-	<meta name="author" content="Khoirusy Syafaat"/>
+	<meta name="description" content="{{ config('app.name', 'Sistem Core Khoirusy Syafaat') }}" />
+	<meta name="author" content="Khoirusy Syafaat" />
 	{{-- App favicon --}}
 	<link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
 	<link rel="manifest" href="/manifest.json">
+	{{-- summernote --}}
+	<link href="{{ asset('assets/libs/summernote/summernote-bs4.css') }}" rel="stylesheet" type="text/css" />
+
+	{{-- dropzone --}}
+	<link href="{{ asset('assets/libs/dropzone/min/dropzone.min.css') }}" rel="stylesheet" type="text/css" />
+
 	{{-- datepicker --}}
 	<link href="{{ asset('assets/libs/air-datepicker/css/datepicker.min.css') }}" rel="stylesheet" type="text/css" />
 	{{-- DataTables --}}
 	<link href="{{ asset('assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
 	<link href="{{ asset('assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
-	{{--  Responsive datatable examples --}}
+	{{-- Responsive datatable examples --}}
 	<link href="{{ asset('assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
 	{{-- Picker.JS --}}
-	<link href="{{ asset('assets/libs/pickerjs/dist/picker.min.css') }}" rel="stylesheet" type="text/css"/>
+	<link href="{{ asset('assets/libs/pickerjs/dist/picker.min.css') }}" rel="stylesheet" type="text/css" />
 	{{-- Plugins css --}}
 	<link href="{{ asset('assets/libs/dropzone/min/dropzone.min.css') }}" rel="stylesheet" type="text/css" />
 	{{-- Select2 --}}
-	<link href="{{ asset('assets/libs/select2/select2.min.css') }}" rel="stylesheet" type="text/css"/>
+	<link href="{{ asset('assets/libs/select2/select2.min.css') }}" rel="stylesheet" type="text/css" />
 	{{-- Sweet Alert--}}
-	<link href="{{ asset('assets/libs/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css"/>
+	<link href="{{ asset('assets/libs/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
 	{{-- Bootstrap Css --}}
-	<link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
+	<link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
 	{{-- Icons Css --}}
-	<link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css"/>
+	<link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
 	{{-- App Css--}}
-	<link href="{{ asset('assets/css/app.min.css') }}" rel="stylesheet" type="text/css"/>
+	<link href="{{ asset('assets/css/app.min.css') }}" rel="stylesheet" type="text/css" />
 	{{-- JAVASCRIPT --}}
 	<script src="{{ asset('assets/libs/jquery/jquery.min.js') }}"></script>
 	<script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
 	@yield('javascript_head')
-	
+
 	<style type="text/css" media="screen">
 		/* Chrome, Safari, Edge, Opera */
 		input::-webkit-outer-spin-button,
@@ -45,6 +52,7 @@
 			-webkit-appearance: none;
 			margin: 0;
 		}
+
 		/* Firefox */
 		input[type=number] {
 			-moz-appearance: textfield;
@@ -54,22 +62,45 @@
 			font-size: .625rem;
 			padding: 0.3rem 0.55rem;
 		}
-		.autocomplete-suggestions { border: 1px solid #999; background: #FFF; overflow: auto; }
-		.autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; }
-		.autocomplete-selected { background: #F0F0F0; }
-		.autocomplete-suggestions strong { font-weight: normal; color: #3399FF; }
-		.autocomplete-group { padding: 2px 5px; }
-		.autocomplete-group strong { display: block; border-bottom: 1px solid #000; }
 
+		.autocomplete-suggestions {
+			border: 1px solid #999;
+			background: #FFF;
+			overflow: auto;
+		}
+
+		.autocomplete-suggestion {
+			padding: 2px 5px;
+			white-space: nowrap;
+			overflow: hidden;
+		}
+
+		.autocomplete-selected {
+			background: #F0F0F0;
+		}
+
+		.autocomplete-suggestions strong {
+			font-weight: normal;
+			color: #3399FF;
+		}
+
+		.autocomplete-group {
+			padding: 2px 5px;
+		}
+
+		.autocomplete-group strong {
+			display: block;
+			border-bottom: 1px solid #000;
+		}
 	</style>
 </head>
 
 <body data-topbar="colored" data-keep-enlarged="true" {{-- class="vertical-collpsed" --}}>
 
 	{{-- Begin page --}}
-	<div id="layout-wrapper" >
+	<div id="layout-wrapper">
 
-		<header id="page-topbar" style="box-shadow: 1px 2px 4px rgba(0,0,0,.3) !important; background-color: {{ env('HEADER_COLOR', "#3051d3") }};">
+		<header id="page-topbar" style="box-shadow: 1px 2px 4px rgba(0,0,0,.3) !important; background-color: {{ env('HEADER_COLOR', '#3051d3') }};">
 			<div class="navbar-header">
 				<div class="d-flex">
 					{{-- LOGO --}}
@@ -79,12 +110,12 @@
 								<a href="{{ route('home') }}" class="logo logo-dark">
 									<span class="logo-lg text-left">
 										<button type="button" class="btn btn-sm rounded-sm px-3 font-size-20 vertical-menu-btn header-item waves-effect text-white ml-n3" id="">
-											<i class="mdi mdi-keyboard-backspace" id="changeIconToogleMenu"></i> <span class="font-size-16">Minimize Menu</span> 
+											<i class="mdi mdi-keyboard-backspace" id="changeIconToogleMenu"></i> <span class="font-size-16">Minimize Menu</span>
 										</button>
 									</span>
 									<span class="logo-sm">
 										<button type="button" class="btn btn-sm font-size-20 vertical-menu-btn header-item waves-effect text-white ml-n2" id="">
-											<i class="mdi mdi-keyboard-tab" id="changeIconToogleMenu"></i> 
+											<i class="mdi mdi-keyboard-tab" id="changeIconToogleMenu"></i>
 										</button>
 									</span>
 								</a>
@@ -148,25 +179,7 @@
 								@endif
 							</ul>
 						</li>
-      @endif
-      @if ($crud = isValidRole($master,['Crud']))
-						<li>
-							<a href="javascript:void(0);" class="has-arrow waves-effect">
-								<div class="d-inline-block icons-sm mr-1"><i class="uim uim-window-grid"></i></div>
-								<span>Crud</span>
-							</a>
-							<ul class="sub-menu" aria-expanded="false">
-								@if ($province = isValidRole($crud,['Province']))
-								<li><a href="{{ route('master.crud.province.index') }}">Provinsi</a></li>
-                @endif
-                @if ($province = isValidRole($crud,['Country']))
-								<li><a href="{{ route('master.crud.country.index') }}">Country</a></li>
-								@endif
-							</ul>
-						</li>
 						@endif
-
-
 						@endif
 
 						<li>
@@ -223,21 +236,21 @@
 								</a>
 							</div>
 							<div class="col-4 text-center">
-								@if (isValidRole($akses,['Data Master', 'Master Penjualan', 'Gudang']))
-								<a href="{{ route('master.sales.warehouse.index') }}" class="waves-effect mb-n1 mt-1">
+								@if (isValidRole($akses,['Data Master', 'Master Penjualan', 'Kategori']))
+								<a href="{{ route('master.sales.kategori.index') }}" class="waves-effect mb-n1 mt-1">
 									<div class="d-inline-block icons-lg text-center">
 										<i class="fas fa-people-carry" style="font-size: 20pt"></i><br>
-										<span style="font-size: 10pt">Gudang</span>
+										<span style="font-size: 10pt">Kategori</span>
 									</div>
 								</a>
 								@endif
 							</div>
 							<div class="col-2 text-center">
-								@if (isValidRole($akses,['Data Master', 'Master Penjualan', 'Item']))
-								<a href="{{ route('master.sales.unit.index') }}" class="waves-effect mb-n1 mt-1">
+								@if (isValidRole($akses,['Data Master', 'Master Penjualan', 'Produk']))
+								<a href="{{ route('master.sales.produk.index') }}" class="waves-effect mb-n1 mt-1">
 									<div class="d-inline-block icons-lg text-center">
 										<i class="fab fa-wpforms" style="font-size: 20pt"></i><br>
-										<span style="font-size: 10pt">Barang</span>
+										<span style="font-size: 10pt">Produk</span>
 									</div>
 								</a>
 								@endif
@@ -289,7 +302,7 @@
 	<script src="{{ asset('assets/libs/pickerjs/dist/picker.min.js') }}"></script>
 	{{-- Autocomplete Ajax --}}
 	<script src="{{ asset('assets/libs/autocomplete-ajax/jquery.autocomplete.min.js') }}"></script>
-	<script src="{{ asset('assets/libs/jquery-knob/jquery.knob.min.js') }}"></script> 
+	<script src="{{ asset('assets/libs/jquery-knob/jquery.knob.min.js') }}"></script>
 	{{-- Required datatable js --}}
 	<script src="{{ asset('assets/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
 	<script src="{{ asset('assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
@@ -303,25 +316,28 @@
 	<script src="{{ asset('assets/js/app.js?v=0.0.1') }}"></script>
 	{{-- dropzone js --}}
 	<script src="{{ asset('assets/libs/dropzone/min/dropzone.min.js') }}"></script>
+	<script src="{{ asset('assets/libs/summernote/summernote-bs4.min.js') }}"></script>
 	<script src="{{ asset('app-sw.js') }}"></script>
 
 	<script type="text/javascript">
+	  Dropzone.autoDiscover = false;
+		
 		$(".ModalAjax").unbind();
 		$(".ModalAjax").submit(function(e) {
 			e.preventDefault();
 			setUncurrency();
-			
-			var form      = $(this);
-			var formData  = new FormData(form[0]);
-			var url       = form.attr('action');
-			
-			var $submit   = $(this).find(':submit'); 
-			var $oldHtml  = $submit.html();
+
+			var form = $(this);
+			var formData = new FormData(form[0]);
+			var url = form.attr('action');
+
+			var $submit = $(this).find(':submit');
+			var $oldHtml = $submit.html();
 			var $oldClass = $submit.attr('class');
 
 			$submit.html('<i class="spinner-border spinner-border-sm"></i> Loading');
 			$submit.attr('class', 'btn btn-info disabled');
-			$submit.attr('disabled',true);
+			$submit.attr('disabled', true);
 
 			$.ajax({
 				type: "POST",
@@ -332,17 +348,35 @@
 				contentType: false,
 				enctype: 'multipart/form-data',
 				processData: false,
+				xhr: function() {
+					var xhr = new window.XMLHttpRequest();
+					xhr.upload.addEventListener("progress", function(evt) {
+						
+						console.log("EVENT", evt);
+
+						if (evt.lengthComputable) {
+							var percentComplete = ((evt.loaded / evt.total) * 100);
+							console.log("EVENT", percentComplete);
+
+							$(".progress-bar").width(percentComplete + '%');
+							$(".progress-bar").html(percentComplete+'%');
+						}
+					}, false);
+					return xhr;
+				},
+
+
 				success: (data) => {
 
-					if (data.error==false) {
-						if (data.trigger!="" && data.trigger!=null) {
+					if (data.error == false) {
+						if (data.trigger != "" && data.trigger != null) {
 							var msg = data.data;
 							var newOption = new Option(`${msg.text}`, msg.id);
 							$(`[name='${data.trigger}']`).append(newOption).trigger('change');
 							$(`[name='${data.trigger}']`).val(msg.id).trigger('change');
 						}
 
-						Swal.fire('Sukses', data.messages ,'success');
+						Swal.fire('Sukses', data.messages, 'success');
 
 						form.trigger("reset").trigger('change');
 						form.find('.BtnCloseModal').click();
@@ -367,19 +401,21 @@
 							title: 'Gagal',
 							icon: 'warning',
 							html: listAlertHtml,
-						}).then(function(){
-							$('body').attr('style','padding-right: 0px;'); }, function(){ $('body').attr('style','padding-right: 0px;'); 
+						}).then(function() {
+							$('body').attr('style', 'padding-right: 0px;');
+						}, function() {
+							$('body').attr('style', 'padding-right: 0px;');
 						});
 					}
 					$submit.html('<i class="mdi mdi-plus-box-outline"></i> Simpan');
-					$submit.attr('class','btn btn-success');
-					$submit.attr('disabled',false);	
+					$submit.attr('class', 'btn btn-success');
+					$submit.attr('disabled', false);
 				},
 				error: function(jqXHR, textStatus, errorThrown) {
 					msg = $.parseJSON(jqXHR.responseText);
 
-					if (msg.message=="CSRF token mismatch.") {
-						$.get('/refresh-csrf').done(function(data){
+					if (msg.message == "CSRF token mismatch.") {
+						$.get('/refresh-csrf').done(function(data) {
 							$('[name="_token"]').val(data.token);
 							$submit.click();
 						});
@@ -392,8 +428,8 @@
 					}
 
 					$submit.html('<i class="mdi mdi-plus-box-outline"></i> Simpan');
-					$submit.attr('class','btn btn-success');
-					$submit.attr('disabled',false);
+					$submit.attr('class', 'btn btn-success');
+					$submit.attr('disabled', false);
 				},
 			});
 		});
@@ -401,4 +437,5 @@
 
 	@yield('javascript')
 </body>
+
 </html>

@@ -164,7 +164,7 @@ class CoreController extends Controller
         }
       }
 
-      return datatables($dataTable)->toJson();
+      return datatables($dataTable)->rawColumns(['master_produk_deskripsi', 'action'])->toJson();
     }
 
     /**

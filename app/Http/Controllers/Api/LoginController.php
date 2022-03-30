@@ -16,8 +16,8 @@ use Laravel\Passport\Client as OClient;
 
 class LoginController extends Controller
 {
-  public function login(){
-    $validator = Validator::make(request()->all(), [
+  public function login(Request $request){
+    $validator = Validator::make($request->all(), [
       'email'    => 'required|string|email',
       'password' => 'required|string',
     ]);
@@ -29,27 +29,44 @@ class LoginController extends Controller
 
     $credentials = request(['email', 'password']);
 
-
     if(!Auth::attempt($credentials))
       return response()->json([
         'error'   => true, 
         'message' => 'Unauthorized'
       ], 401);
 
-    $oClient = OClient::where('password_client', 1)->first();
+    // $oClient = OClient::where('password_client', 1)->first();
+    
+    // $response = Http::post(env('APP_URL') . '/oauth/token', [
+    //   'grant_type'    => 'password',
+    //   'client_id'     => $oClient->id,
+    //   'client_secret' => $oClient->secret,
+    //   'username'      => request('email'),
+    //   'password'      => request('password'),
+    //   'scope'         => '*',
+    // ]);
 
-    $response = Http::post(env('APP_URL') . '/oauth/token', [
-      'grant_type'    => 'password',
-      'client_id'     => $oClient->id,
-      'client_secret' => $oClient->secret,
-      'username'      => request('email'),
-      'password'      => request('password'),
-      'scope'         => '*',
+    // $result = json_decode((string) $response->getBody(), true);
+
+    // return response()->json(['error' => false, 'messages' => $result]);
+
+    $user = $request->user();
+
+    $tokenResult = $user->createToken('Personal Access Token');
+    $token = $tokenResult->token;
+    
+    if ($request->remember_me){
+      $token->expires_at = Carbon::now()->addWeeks(1);
+    }
+    
+    $token->save();
+    return response()->json([
+         'access_token' => $tokenResult->accessToken,
+         'token_type' => 'Bearer',
+         'expires_at' => Carbon::parse(
+             $tokenResult->token->expires_at
+          )->toDateTimeString()
     ]);
-
-    $result = json_decode((string) $response->getBody(), true);
-
-    return response()->json(['error' => false, 'messages' => $result]);
   }
 
   public function refresh(){
@@ -62,24 +79,24 @@ class LoginController extends Controller
       return response()->json(['error' => true, 'messages' => $message]);
     }
 
-    $oClient = OClient::where('password_client', 1)->first();
+    // $oClient = OClient::where('password_client', 1)->first();
 
-    $response = Http::post(env('APP_URL') . '/oauth/token', [
-      'grant_type'    => 'refresh_token',
-      'client_id'     => $oClient->id,
-      'client_secret' => $oClient->secret,
-      'refresh_token' => request('refresh_token'),
-      'scope'         => '*',
-    ]);
+    // $response = Http::post(env('APP_URL') . '/oauth/token', [
+    //   'grant_type'    => 'refresh_token',
+    //   'client_id'     => $oClient->id,
+    //   'client_secret' => $oClient->secret,
+    //   'refresh_token' => request('refresh_token'),
+    //   'scope'         => '*',
+    // ]);
 
-    $result = json_decode((string) $response->getBody(), true);
+    // $result = json_decode((string) $response->getBody(), true);
 
-    $error  = true;
-    if ($response->status()!=401) {
-      $error  = false;
-    }    
+    // $error  = true;
+    // if ($response->status()!=401) {
+    //   $error  = false;
+    // }    
 
-    return response()->json(['error' => $error, 'messages' => $result]);
+    // return response()->json(['error' => $error, 'messages' => $result]);
   }
 
   public function details()

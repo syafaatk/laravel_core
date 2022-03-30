@@ -10,7 +10,9 @@
 					<div class="float-right mt-n2" id="PenjualanRetail">
 						<div class="spinner-grow ml-auto" role="status" aria-hidden="true"></div>
 					</div>
-					<h4 class="mt-0 header-title"><strong>... ... ... ... ... ... ... ... ... ...</strong><hr></h4>
+					<h4 class="mt-0 header-title"><strong>... ... ... ... ... ... ... ... ... ...</strong>
+						<hr>
+					</h4>
 					<div class="col-12 text-center p-3">
 						<div class="spinner-border text-primary" role="status">
 							<span class="sr-only">Loading...</span>
@@ -33,7 +35,9 @@
 						</a>
 						@endif
 					</div>
-					<h4 class="mt-0 header-title">Semua Data Produk / Barang<hr></h4>
+					<h4 class="mt-0 header-title">Semua Data Produk / Barang
+						<hr>
+					</h4>
 					@if (isValidRole($Role,'Edit'))
 					<p class="text-danger font-14 mb-2">* Apabila Mengubah Harga Pada Data Produk/Barang Harap Juga Mengubah Harga Pada Data Assembly</p>
 					@endif
@@ -41,7 +45,7 @@
 						<li class="nav-item">
 							@if (!empty($Role))
 							<a href="#master_produk" data-toggle="tab" aria-expanded="false" class="nav-link active">
-								<span> > Data Produk / Barang</span>            
+								<span> > Data Produk / Barang</span>
 							</a>
 							@endif
 						</li>
@@ -107,28 +111,53 @@
 			reloadAll();
 		});
 
-		var columns = [
-		{ data : "master_produk_id", name : "master_produk_id", title : "No", render: function ( data, type, row, meta ) {
-			return meta.row+meta.settings._iDisplayStart+1;
-		}},
-		{ data : "master_produk_name", name : "master_produk_name", title : "Nama Item / Barang",},
-		{ data : "master_produk_deskripsi", name : "master_produk_deskripsi", title : "Deskripsi Barang",},
-		{ data : "master_produk_price", name : "master_produk_price", title : "Harga", render: function ( data ) {
-			return IDR.format(data);
-		}},
-		{ data : "master_kategori_name", name : "master_kategori_name", title : "Kategori"},
-		// { data : "created_at", name : "created_at", title : "Create At" },
-		// { data : "updated_at", name : "updated_at", title : "Update At" },
-		{ data : "master_produk_id", name : "master_produk_id", title : "", render: function ( data, type, row, meta ) {
-			let STATUS = '';
-			@if (isValidRole($Role,'Active Nonactive'))
-			if (row.master_produk_status=="Active") {
-				STATUS = `<button class="btn btn-sm btn-danger ActItem" title="Non Aktifkan Akun" data-action="Non Active" data-unique="${data}"><i class="mdi mdi-cancel"></i> Nonaktifkan</button>`;
-			} else {
-				STATUS = `	<button class="btn btn-sm btn-success ActItem" title="Aktifkan Akun" data-action="Active" data-unique="${data}"><i class="fas fa-check"></i> Aktifkan</button>`;
-			}
-			@endif
-			return `
+		var columns = [{
+				data: "master_produk_id",
+				name: "master_produk_id",
+				title: "No",
+				render: function(data, type, row, meta) {
+					return meta.row + meta.settings._iDisplayStart + 1;
+				}
+			},
+			{
+				data: "master_produk_name",
+				name: "master_produk_name",
+				title: "Nama Item / Barang",
+			},
+			{
+				data: "master_produk_deskripsi",
+				name: "master_produk_deskripsi",
+				title: "Deskripsi Barang",
+			},
+			{
+				data: "master_produk_price",
+				name: "master_produk_price",
+				title: "Harga",
+				render: function(data) {
+					return IDR.format(data);
+				}
+			},
+			{
+				data: "master_kategori_name",
+				name: "master_kategori_name",
+				title: "Kategori"
+			},
+			// { data : "created_at", name : "created_at", title : "Create At" },
+			// { data : "updated_at", name : "updated_at", title : "Update At" },
+			{
+				data: "master_produk_id",
+				name: "master_produk_id",
+				title: "",
+				render: function(data, type, row, meta) {
+					let STATUS = '';
+					@if(isValidRole($Role, 'Active Nonactive'))
+					if (row.master_produk_status == "Active") {
+						STATUS = `<button class="btn btn-sm btn-danger ActItem" title="Non Aktifkan Akun" data-action="Non Active" data-unique="${data}"><i class="mdi mdi-cancel"></i> Nonaktifkan</button>`;
+					} else {
+						STATUS = `	<button class="btn btn-sm btn-success ActItem" title="Aktifkan Akun" data-action="Active" data-unique="${data}"><i class="fas fa-check"></i> Aktifkan</button>`;
+					}
+					@endif
+					return `
 			${STATUS}
 			@if (isValidRole($Role,'Edit'))
 			<button class="btn btn-sm btn-warning ActupdateItem" title="Perbarui Data Produk" data-unique="${data}" data-toggle="modal" data-target=".form-updateItem"><i class="fas fa-edit"></i> Update</button>
@@ -137,17 +166,18 @@
 			<button class="btn btn-sm btn-danger ActItem" title="Hapus Data Produk" data-action="Penghapusan Data" data-unique="${data}"><i class="fas fa-trash"></i> Hapus</button>
 			@endif
 			`;
-		}},
+				}
+			},
 		];
 
-		@if (!empty($Role))
+		@if(!empty($Role))
 
 		var datatable_item = $('#datatable_item').DataTable({
-			"processing" : true,
-			"serverSide" : true,
-			"lengthMenu" : [10, 25, 50, 100, 250, 500, 1000],
-			"pageLength" : 25,
-			ajax : {
+			"processing": true,
+			"serverSide": true,
+			"lengthMenu": [10, 25, 50, 100, 250, 500, 1000],
+			"pageLength": 25,
+			ajax: {
 				url: '{{ route('master.sales.produk.datatable') }}',
 				type: 'POST',
 				data: (params) => {
@@ -156,15 +186,19 @@
 					params.master_kategori_id = $('#select2_master_kategori_search').val();
 				}
 			},
-			"aoColumns" : columns,
-			"initComplete": () => { ActItem(); },
-			"drawCallback": () => { ActItem(); }
+			"aoColumns": columns,
+			"initComplete": () => {
+				ActItem();
+			},
+			"drawCallback": () => {
+				ActItem();
+			}
 		});
 
-		function ActItem(){
+		function ActItem() {
 
-			@if (isValidRole($Role,'Edit'))
-			if (typeof updateItem === "function") { 
+			@if(isValidRole($Role, 'Edit'))
+			if (typeof updateItem === "function") {
 				updateItem();
 			}
 			@endif
@@ -174,11 +208,11 @@
 
 				var column = datatable_item.column(2);
 
-				column.visible( ! column.visible() );
+				column.visible(!column.visible());
 			});
 
 			$('.ComingSoonAlert').on('click', function(event) {
-				Swal.fire('info', "Coming Soon. Fitur Sedang Dalam Tahap Development" ,'warning');
+				Swal.fire('info', "Coming Soon. Fitur Sedang Dalam Tahap Development", 'warning');
 			});
 
 			$(".ActItem").on('click', function(event) {
@@ -198,25 +232,33 @@
 						let id = $(this).data('unique');
 						let msg = "";
 
-						@if (isValidRole($Role,'Active Nonactive'))
+						@if(isValidRole($Role, 'Active Nonactive'))
 						if (action == "Active") {
 							$.getJSON(`{{ route('master.sales.produk.active', ['id' => '']) }}/${id}`, function(data) {
 								msg = data.messages;
-							}).then(()=>{ Swal.fire(action, msg ,'success'); });
+							}).then(() => {
+								Swal.fire(action, msg, 'success');
+							});
 						}
 
 						if (action == "Non Active") {
 							$.getJSON(`{{ route('master.sales.produk.nonactive', ['id' => '']) }}/${id}`, function(data) {
 								msg = data.messages;
-							}).then(()=>{ Swal.fire(action, msg ,'success'); });
+							}).then(() => {
+								Swal.fire(action, msg, 'success');
+							});
 						}
 						@endif
 
-						@if (isValidRole($Role,'Hapus'))
+						@if(isValidRole($Role, 'Hapus'))
 						if (action == "Penghapusan Data") {
-							$.post(`{{ route('master.sales.produk.delete', ['id' => '']) }}/${id}`,{_token:$('meta[name="csrf-token"]').attr('content')}, function(data) {
+							$.post(`{{ route('master.sales.produk.delete', ['id' => '']) }}/${id}`, {
+								_token: $('meta[name="csrf-token"]').attr('content')
+							}, function(data) {
 								msg = data.messages;
-							}).then(()=>{ Swal.fire(action, msg ,'success'); });
+							}).then(() => {
+								Swal.fire(action, msg, 'success');
+							});
 						}
 						@endif
 
@@ -230,8 +272,8 @@
 
 		@endif
 
-		var reloadAll = function(){
-			@if (isValidRole($Role,'Reload Data'))
+		var reloadAll = function() {
+			@if(isValidRole($Role, 'Reload Data'))
 			datatable_item.ajax.reload();
 			@endif
 		}
@@ -245,6 +287,14 @@
 				dataType: 'json',
 			}
 		});
+
+		$("#update-master_produk_deskripsi").summernote({
+			height: 250,
+			minHeight: null,
+			maxHeight: null,
+			focus: !1
+		});
+
 	});
 </script>
 @endsection

@@ -9,7 +9,7 @@
         <div class="modal-body">
           <form action="{{ route('master.sales.produk.add') }}" method="POST" class="form-horizontal ModalAjax" accept-charset="utf-8">
             @csrf
-            
+
             <div class="form-group row">
               <label class="col-md-3 mb-n3 col-form-label">Kategori</label>
               <div class="col-md-9 mb-n3">
@@ -34,7 +34,8 @@
             <div class="form-group row">
               <label class="col-md-3 mb-n3 col-form-label">Deskripsi Produk</label>
               <div class="col-md-9 mb-n3">
-                <input type="text" class="form-control form-control-sm" name="master_produk_deskripsi" placeholder="Deskripsi Produk" required="">
+                <!-- <input type="text" class="form-control form-control-sm" name="master_produk_deskripsi" placeholder="Deskripsi Produk" required=""> -->
+                <textarea name="master_produk_deskripsi" class="form-control form-control-sm" placeholder="Deskripsi Produk" required="" id="master_produk_deskripsi"></textarea>
               </div>
             </div>
             <div class="form-group row">
@@ -43,7 +44,7 @@
                 <input type="text" data-type="currency" class="form-control form-control-sm" name="master_produk_price" placeholder="Harga Modal Item / Barang" required="">
               </div>
             </div>
-            
+
             <div class="form-group row">
               <label class="col-md-3 col-form-label">Gambar Item / Barang</label>
               <div class="col-md-9">
@@ -53,28 +54,12 @@
                 </div>
               </div>
             </div>
-
-            <!-- <div class="form-group row">
-                  <form action="#" class="dropzone">
-                      <div class="fallback">
-                          <input name="file" type="file" multiple="multiple">
-                      </div>
-                      <div class="dz-message needsclick">
-                          <div class="mb-3">
-                              <i class="display-4 text-muted mdi mdi-cloud-upload-outline"></i>
-                          </div>
-                          
-                          <h4>Drop files here to upload</h4>
-                      </div>
-                  </form>
-              </div>
-
-              <div class="text-center mt-4">
-                  <button type="button" class="btn btn-primary waves-effect waves-light">Send Files</button>
-              </div>
-            </div> -->
-                            
-            
+            <div class='progress' id="progressDivId">
+                <div class='progress-bar' id='progressBar'></div>
+                <div class='percent' id='percent'>0%</div>
+            </div>
+            <div style="height: 10px;"></div>
+            <div id='outputImage'></div>
             <hr>
             <div class="form-group row">
               <label class="col-md-3 col-form-label"></label>
@@ -88,3 +73,13 @@
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
+  <script>
+    $(document).ready(function() {
+      $("#master_produk_deskripsi").summernote({
+        height: 250,
+        minHeight: null,
+        maxHeight: null,
+        focus: !1
+      })
+    });
+  </script>

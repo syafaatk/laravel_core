@@ -9,7 +9,7 @@
         <div class="modal-body">
           <form action="{{ route('master.sales.produk.update') }}" method="POST" class="form-horizontal ModalAjax onUpdateItem" accept-charset="utf-8">
             @csrf
-            
+
             <div class="form-group row">
               <label class="col-md-3 mb-n3 col-form-label">Kategori</label>
               <div class="col-md-9 mb-n3">
@@ -35,7 +35,8 @@
             <div class="form-group row">
               <label class="col-md-3 mb-n3 col-form-label">Deskripsi Produk</label>
               <div class="col-md-9 mb-n3">
-                <input type="text" class="form-control form-control-sm" id="update-master_produk_deskripsi" name="master_produk_deskripsi" placeholder="Deskripsi Produk" required="">
+                <!-- <input type="text" class="form-control form-control-sm" id="update-master_produk_deskripsi" name="master_produk_deskripsi" placeholder="Deskripsi Produk" required=""> -->
+                <textarea name="master_produk_deskripsi" class="form-control form-control-sm" placeholder="Deskripsi Produk" required="" id="update-master_produk_deskripsi"></textarea>
               </div>
             </div>
             <div class="form-group row">
@@ -44,7 +45,7 @@
                 <input type="text" data-type="currency" class="form-control form-control-sm" id="update-master_produk_price" name="master_produk_price" placeholder="Harga Modal Produk" required="">
               </div>
             </div>
-            
+
             <div class="form-group row">
               <label class="col-md-3 col-form-label">Gambar Produk Baru</label>
               <div class="col-md-9">
@@ -76,7 +77,7 @@
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
   <script type="text/javascript">
-    function updateItem(){
+    function updateItem() {
       $(".ActupdateItem").unbind();
       $('.ActupdateItem').on('click', function(event) {
         event.preventDefault();
@@ -84,13 +85,13 @@
         let id = $(this).data('unique');
         let msg = "";
 
-        $('.onUpdateItem').attr('action',`{{ route('master.sales.produk.update', ['id' => '']) }}/${id}`);
+        $('.onUpdateItem').attr('action', `{{ route('master.sales.produk.update', ['id' => '']) }}/${id}`);
 
-        $.getJSON(`{{ route('master.sales.produk.find', ['id' => '']) }}/${id}`, function(data) { 
+        $.getJSON(`{{ route('master.sales.produk.find', ['id' => '']) }}/${id}`, function(data) {
           msg = data.messages;
 
           $.each(msg, function(index, val) {
-            $(`#update-${index}`).val(val).trigger('change') ;
+            $(`#update-${index}`).val(val).trigger('change');
           });
 
           var newOptionBrand = new Option(`${msg.master_kategori_name} ( ${msg.master_kategori_alias} )`, msg.master_kategori_id);
@@ -98,13 +99,17 @@
           $('#update-master_kategori_id').val(msg.master_kategori_id).trigger('change');
 
           $('#update-master_produk_file').attr({
-            'src':`{{ asset('/5128f35c/item') }}/${msg.master_produk_file}`
+            'src': `{{ asset('/5128f35c/item') }}/${msg.master_produk_file}`
           });
 
           $('#update-master_produk_file').parent('a').attr({
-            'href':`{{ asset('/5128f35c/item') }}/${msg.master_produk_file}`
+            'href': `{{ asset('/5128f35c/item') }}/${msg.master_produk_file}`
           });
+
+          
+
+          $('#update-master_produk_deskripsi').summernote('code', msg.master_produk_deskripsi);
         });
       });
     }
-  </script>  
+  </script>
