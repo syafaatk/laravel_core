@@ -94,6 +94,11 @@
                         <div class="mt-4 text-center">
                           <button class="btn btn-primary btn-block waves-effect waves-light" type="submit">Masuk</button>
                         </div>
+                        <div class="mt-4 text-center">
+                          <a href="{{ route('view') }}" class="btn btn-success btn-block waves-effect  waves-effect">
+                              Halaman Depan
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </form>
