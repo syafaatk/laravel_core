@@ -39,7 +39,7 @@
         <div class="col-lg-12 mt-sm-12">
           <div class="text-center mb-3">
 
-            <a href="{{ url('/') }}" class="logo"><img src="{{ asset('assets/images/logo-light.png') }}" height="72" alt="logo" class="mb-3"></a>
+            <a href="{{ url('/') }}" class="logo"><img src="https://majoo.id/assets/img/main-logo.png" height="72" alt="logo" class="mb-3"></a>
             <h5 class="font-size-16 text-white-50 mb-2">{{ env('COMPANY_SLOGAN') }}</h5>
             </div>
           </div>
